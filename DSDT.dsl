@@ -2360,7 +2360,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                 Return (Arg3)
             }
 
-            Mutex (MDGS, 0x07)
+            Mutex(MDGS, 0)
             Name (VDEE, 0x01)
             Name (VDDA, Buffer (0x02) {})
             CreateBitField (VDDA, 0x00, VUPC)
@@ -4858,7 +4858,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                                 Offset (0x4C), 
                         HTMH,   8, 
                         HTML,   8, 
-                        HWAK,   16, 
+                        WAK0,8,WAK1,8, 
                         HMPR,   8, 
                             ,   7, 
                         HMDN,   1, 
@@ -4869,7 +4869,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                         HIID,   8, 
                                 Offset (0x83), 
                         HFNI,   8, 
-                        HSPD,   16, 
+                        SPD0,8,SPD1,8, 
                                 Offset (0x88), 
                         TSL0,   7, 
                         TSR0,   1, 
@@ -5322,7 +5322,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                         }
                     }
 
-                    Mutex (MCPU, 0x07)
+                    Mutex(MCPU, 0)
                     Method (_Q10, 0, NotSerialized)
                     {
                         If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x01))
@@ -5827,12 +5827,12 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                     Field (ECOR, ByteAcc, NoLock, Preserve)
                     {
                                 Offset (0xA0), 
-                        SBRC,   16, 
-                        SBFC,   16, 
+                        BRC0,8,BRC1,8, 
+                        BFC0,8,BFC1,8, 
                         SBAE,   16, 
                         SBRS,   16, 
-                        SBAC,   16, 
-                        SBVO,   16, 
+                        BAC0,8,BAC1,8, 
+                        BVO0,8,BVO1,8, 
                         SBAF,   16, 
                         SBBS,   16
                     }
@@ -5840,7 +5840,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                     Field (ECOR, ByteAcc, NoLock, Preserve)
                     {
                                 Offset (0xA0), 
-                        SBBM,   16, 
+                        BBM0,8,BBM1,8, 
                         SBMD,   16, 
                         SBCC,   16
                     }
@@ -5848,61 +5848,61 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                     Field (ECOR, ByteAcc, NoLock, Preserve)
                     {
                                 Offset (0xA0), 
-                        SBDC,   16, 
-                        SBDV,   16, 
+                        BDC0,8,BDC1,8, 
+                        BDV0,8,BDV1,8, 
                         SBOM,   16, 
                         SBSI,   16, 
                         SBDT,   16, 
-                        SBSN,   16
+                        BSN0,8,BSN1,8
                     }
 
                     Field (ECOR, ByteAcc, NoLock, Preserve)
                     {
                                 Offset (0xA0), 
-                        SBCH,   32
+                        BCH0,8,BCH1,8,BCH2,8,BCH3,8
                     }
 
                     Field (ECOR, ByteAcc, NoLock, Preserve)
                     {
                                 Offset (0xA0), 
-                        SBMN,   128
+                        BMNX,128,//SBMN,128
                     }
 
                     Field (ECOR, ByteAcc, NoLock, Preserve)
                     {
                                 Offset (0xA0), 
-                        SBDN,   128
+                        BDNX,128,//SBDN,128
                     }
 
-                    Mutex (BATM, 0x07)
+                    Mutex(BATM, 0)
                     Method (GBIF, 3, NotSerialized)
                     {
                         Acquire (BATM, 0xFFFF)
                         If (Arg2)
                         {
                             Or (Arg0, 0x01, HIID)
-                            Store (SBBM, Local7)
+                            Store (B1B2(BBM0,BBM1), Local7)
                             ShiftRight (Local7, 0x0F, Local7)
                             XOr (Local7, 0x01, Index (Arg1, 0x00))
                             Store (Arg0, HIID)
                             If (Local7)
                             {
-                                Multiply (SBFC, 0x0A, Local1)
+                                Multiply (B1B2 (BFC0, BFC1), 0x0A, Local1)
                             }
                             Else
                             {
-                                Store (SBFC, Local1)
+                                Store (B1B2 (BFC0, BFC1), Local1)
                             }
 
                             Store (Local1, Index (Arg1, 0x02))
                             Or (Arg0, 0x02, HIID)
                             If (Local7)
                             {
-                                Multiply (SBDC, 0x0A, Local0)
+                                Multiply (B1B2 (BDC0, BDC1), 0x0A, Local0)
                             }
                             Else
                             {
-                                Store (SBDC, Local0)
+                                Store (B1B2 (BDC0, BDC1), Local0)
                             }
 
                             Store (Local0, Index (Arg1, 0x01))
@@ -5913,9 +5913,9 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                             }
                             Else
                             {
-                                If (SBDV)
+                                If (B1B2 (BDV0, BDV1))
                                 {
-                                    Divide (0x00030D40, SBDV, Local2, Index (Arg1, 0x06))
+                                    Divide (0x00030D40,B1B2(BDV0, BDV1), Local2, Index (Arg1, 0x06))
                                 }
                                 Else
                                 {
@@ -5923,8 +5923,8 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                                 }
                             }
 
-                            Store (SBDV, Index (Arg1, 0x04))
-                            Store (SBSN, Local0)
+                            Store (B1B2 (BDV0, BDV1), Index (Arg1, 0x04))
+                            Store (B1B2 (BSN0, BSN1), Local0)
                             Name (SERN, Buffer (0x06)
                             {
                                 "     "
@@ -5939,16 +5939,16 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
 
                             Store (SERN, Index (Arg1, 0x0A))
                             Or (Arg0, 0x06, HIID)
-                            Store (SBDN, Index (Arg1, 0x09))
+                            Store (RBDN(), Index (Arg1, 0x09))
                             Or (Arg0, 0x04, HIID)
                             Name (BTYP, Buffer (0x05)
                             {
                                 0x00, 0x00, 0x00, 0x00, 0x00
                             })
-                            Store (SBCH, BTYP)
+                            Store (B1B4(BCH0,BCH1,BCH2,BCH3), BTYP)
                             Store (BTYP, Index (Arg1, 0x0B))
                             Or (Arg0, 0x05, HIID)
-                            Store (SBMN, Index (Arg1, 0x0C))
+                            Store (RBMN(), Index (Arg1, 0x0C))
                         }
                         Else
                         {
@@ -5997,17 +5997,17 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                         Else
                         {
                             Store (Arg0, HIID)
-                            Store (SBVO, Local3)
+                            Store (B1B2 (BVO0, BVO1), Local3)
                             If (Arg2)
                             {
-                                Multiply (SBRC, 0x0A, Local2)
+                                Multiply (B1B2 (BRC0, BRC1), 0x0A, Local2)
                             }
                             Else
                             {
-                                Store (SBRC, Local2)
+                                Store (B1B2 (BRC0, BRC1), Local2)
                             }
 
-                            Store (SBAC, Local1)
+                            Store (B1B2 (BAC0, BAC1), Local1)
                             If (LGreaterEqual (Local1, 0x8000))
                             {
                                 If (And (Local0, 0x01))
@@ -6176,51 +6176,9 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                         Name (BT1P, Package (0x04) {})
                         Method (_STA, 0, NotSerialized)
                         {
-                            If (\H8DR)
-                            {
-                                Store (HB1A, B1ST)
-                            }
-                            Else
-                            {
-                                If (And (\RBEC (0x39), 0x80))
-                                {
-                                    Store (0x01, B1ST)
-                                }
-                                Else
-                                {
-                                    Store (0x00, B1ST)
-                                }
-                            }
+                            
+                            Return(0)
 
-                            If (B1ST)
-                            {
-                                If (XB1S)
-                                {
-                                    Return (0x1F)
-                                }
-                                Else
-                                {
-                                    If (\WNTF)
-                                    {
-                                        Return (0x00)
-                                    }
-                                    Else
-                                    {
-                                        Return (0x1F)
-                                    }
-                                }
-                            }
-                            Else
-                            {
-                                If (\WNTF)
-                                {
-                                    Return (0x00)
-                                }
-                                Else
-                                {
-                                    Return (0x0F)
-                                }
-                            }
                         }
 
                         Method (_BIF, 0, NotSerialized)
@@ -6352,7 +6310,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
 
                         Name (DHKC, 0x00)
                         Name (DHKB, 0x01)
-                        Mutex (XDHK, 0x07)
+                        Mutex(XDHK, 0)
                         Name (DHKH, 0x00)
                         Name (DHKW, 0x00)
                         Name (DHKS, 0x00)
@@ -7167,6 +7125,28 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                             Return (Local0)
                         }
                     }
+                    Method (RE1B, 1, NotSerialized)
+                    {
+                        OperationRegion(ERAM, EmbeddedControl, Arg0, 1)
+                        Field(ERAM, ByteAcc, NoLock, Preserve) { BYTE, 8 }
+                        Return(BYTE)
+                    }
+                    Method (RECB, 2, Serialized)
+                    {
+                        ShiftRight(Arg1, 3, Arg1)
+                        Name(TEMP, Buffer(Arg1) { })
+                        Add(Arg0, Arg1, Arg1)
+                        Store(0, Local0)
+                        While (LLess(Arg0, Arg1))
+                        {
+                            Store(RE1B(Arg0), Index(TEMP, Local0))
+                            Increment(Arg0)
+                            Increment(Local0)
+                        }
+                        Return(TEMP)
+                    }
+                    Method (RBMN, 0, Serialized) { Return(RECB(0xA0,128)) }
+                    Method (RBDN, 0, Serialized) { Return(RECB(0xA0,128)) }
                 }
             }
 
@@ -7223,7 +7203,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                     }
                 }
 
-                Mutex (MDGS, 0x07)
+                Mutex(MDGS, 0)
                 Name (VDEE, 0x01)
                 Name (VDDA, Buffer (0x04) {})
                 CreateBitField (VDDA, 0x00, VUPC)
@@ -7422,7 +7402,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                         })
                     }
 
-                    Name (_IRC, 0x00)
+                    Method(_IRC, 0, NotSerialized) { Return(0x00) }
                     OperationRegion (ATRP, SystemMemory, \ATRB, 0x00010000)
                     Field (ATRP, AnyAcc, Lock, Preserve)
                     {
@@ -12676,7 +12656,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                 "uhdp3", 
                 "mhdp3"
             })
-            Mutex (MWMI, 0x07)
+            Mutex(MWMI, 0)
             Name (PCFG, Buffer (0x18) {})
             Name (IBUF, Buffer (0x0100) {})
             Name (ILEN, 0x00)
@@ -14278,7 +14258,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
 
         Scope (\_SB.PCI0.LPC.EC.HKEY)
         {
-            Mutex (BFWM, 0x07)
+            Mutex(BFWM, 0)
             Method (MHCF, 1, NotSerialized)
             {
                 Store (\BFWC (Arg0), Local0)
@@ -14915,10 +14895,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
     })
     Method (\_WAK, 1, NotSerialized)
     {
-        If (LOr (LEqual (Arg0, 0x00), LGreaterEqual (Arg0, 0x05)))
-        {
-            Return (WAKI)
-        }
+        
 
         Store (0x00, \SPS)
         Store (0x00, \_SB.PCI0.LPC.EC.HCMU)
@@ -15263,7 +15240,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
     {
         Method (_L1D, 0, NotSerialized)
         {
-            Store (\_SB.PCI0.LPC.EC.HWAK, Local0)
+            Store (B1B2(\_SB.PCI0.LPC.EC.WAK0,\_SB.PCI0.LPC.EC.WAK1), Local0)
             Store (Local0, \RRBF)
             Sleep (0x0A)
             If (And (Local0, 0x02)) {}
@@ -15946,7 +15923,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
         PAR3,   32
     }
 
-    Mutex (MSMI, 0x07)
+    Mutex(MSMI, 0)
     Method (SMI, 5, NotSerialized)
     {
         Acquire (MSMI, 0xFFFF)
@@ -16574,5 +16551,14 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
     Name (RRBF, 0x00)
     Name (NBCF, 0x00)
     Name (APIN, 0x00)
+    Method (B1B2, 2, NotSerialized) { Return (Or (Arg0, ShiftLeft (Arg1, 8))) }
+    Method (B1B4, 4, NotSerialized)
+    {
+        Store(Arg3, Local0)
+        Or(Arg2, ShiftLeft(Local0, 8), Local0)
+        Or(Arg1, ShiftLeft(Local0, 8), Local0)
+        Or(Arg0, ShiftLeft(Local0, 8), Local0)
+        Return(Local0)
+    }
 }
 
