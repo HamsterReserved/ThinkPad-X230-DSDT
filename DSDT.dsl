@@ -9681,6 +9681,17 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                 {
                     Noop
                 }
+                Method (_DSM, 4, NotSerialized)
+                {
+                    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                    Return (Package()
+                    {
+                        "layout-id", Buffer() { 6, 0x00, 0x00, 0x00 },
+                        "hda-gfx", Buffer() { "onboard-1" },
+                        "PinConfigurations", Buffer() { },
+                        //"MaximumBootBeepVolume", 77,
+                    })
+                }
             }
         }
 
