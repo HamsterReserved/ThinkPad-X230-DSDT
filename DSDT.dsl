@@ -629,7 +629,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
             Store (\SRAH, \_SB.PCI0.RID)
             If (VIGD)
             {
-                Store (\SRHE, \_SB.PCI0.VID.RID)
+                Store (\SRHE, \_SB.PCI0.IGPU.RID)
             }
             Else
             {
@@ -2378,7 +2378,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
             CreateBitField (VDDA, 0x0C, VSD4)
             CreateBitField (VDDA, 0x0D, VSD5)
             CreateBitField (VDDA, 0x0E, MSWT)
-            Device (VID)
+            Device (IGPU)
             {
                 Name (_ADR, 0x00020000)
                 Name (RID, 0x00)
@@ -3618,12 +3618,12 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                             }
                             Else
                             {
-                                Notify (\_SB.PCI0.VID, Arg1)
+                                Notify (\_SB.PCI0.IGPU, Arg1)
                             }
                         }
                     }
 
-                    Notify (\_SB.PCI0.VID, 0x80)
+                    Notify (\_SB.PCI0.IGPU, 0x80)
                     Return (0x00)
                 }
 
@@ -5382,17 +5382,17 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                         {
                             If (LEqual (\VHYB (0x03, 0x00), 0x03))
                             {
-                                Notify (\_SB.PCI0.VID, 0x80)
+                                Notify (\_SB.PCI0.IGPU, 0x80)
                                 Return (Zero)
                             }
 
                             If (VIGD)
                             {
-                                \_SB.PCI0.VID.VSWT ()
+                                \_SB.PCI0.IGPU.VSWT ()
                             }
                             Else
                             {
-                                \_SB.PCI0.PEG.VID.VSWT ()
+                                \_SB.PCI0.PEG.IGPU.VSWT ()
                             }
                         }
                     }
@@ -5517,7 +5517,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                             \UCMS (0x12)
                         }
 
-                        If (\_SB.PCI0.PEG.VID.ISOP ())
+                        If (\_SB.PCI0.PEG.IGPU.ISOP ())
                         {
                             Notify (\_SB.PCI0.PEG.VID, 0xDF)
                         }
@@ -5579,7 +5579,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                             \UCMS (0x12)
                         }
 
-                        If (\_SB.PCI0.PEG.VID.ISOP ())
+                        If (\_SB.PCI0.PEG.IGPU.ISOP ())
                         {
                             Notify (\_SB.PCI0.PEG.VID, 0xDF)
                         }
@@ -5635,12 +5635,12 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                             {
                                 If (VIGD)
                                 {
-                                    \_SB.PCI0.VID.GLIS (0x01)
-                                    \_SB.PCI0.VID.VLOC (0x01)
+                                    \_SB.PCI0.IGPU.GLIS (0x01)
+                                    \_SB.PCI0.IGPU.VLOC (0x01)
                                 }
                                 Else
                                 {
-                                    \_SB.PCI0.PEG.VID.VLOC (0x01)
+                                    \_SB.PCI0.PEG.IGPU.VLOC (0x01)
                                 }
 
                                 Notify (\_SB.LID, 0x80)
@@ -5659,11 +5659,11 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                             {
                                 If (VIGD)
                                 {
-                                    \_SB.PCI0.VID.GLIS (0x00)
+                                    \_SB.PCI0.IGPU.GLIS (0x00)
                                 }
                                 Else
                                 {
-                                    \_SB.PCI0.PEG.VID.VLOC (0x00)
+                                    \_SB.PCI0.PEG.IGPU.VLOC (0x00)
                                 }
 
                                 Notify (\_SB.LID, 0x80)
@@ -6543,11 +6543,11 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                             {
                                 If (VIGD)
                                 {
-                                    \_SB.PCI0.VID.VLOC (0x00)
+                                    \_SB.PCI0.IGPU.VLOC (0x00)
                                 }
                                 Else
                                 {
-                                    \_SB.PCI0.PEG.VID.VLOC (0x00)
+                                    \_SB.PCI0.PEG.IGPU.VLOC (0x00)
                                 }
                             }
                         }
@@ -7225,7 +7225,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                 CreateBitField (VDDA, 0x10, VSD5)
                 CreateBitField (VDDA, 0x11, MSWT)
                 CreateBitField (VDDA, 0x12, VWST)
-                Device (VID)
+                Device (IGPU)
                 {
                     Name (_ADR, 0x00)
                     OperationRegion (VPCG, PCI_Config, 0x00, 0x0100)
@@ -7309,7 +7309,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                                 }
                             }
 
-                            \VHYB (0x09, \_SB.PCI0.PEG.VID.HDAS)
+                            \VHYB (0x09, \_SB.PCI0.PEG.IGPU.HDAS)
                             HPDE (0x00)
                         }
                         Else
@@ -7332,7 +7332,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                     {
                         If (ISOP ())
                         {
-                            If (LEqual (\_SB.PCI0.PEG.VID.OMPR, 0x03))
+                            If (LEqual (\_SB.PCI0.PEG.IGPU.OMPR, 0x03))
                             {
                                 \SWTT (0x00)
                                 \VHYB (0x08, 0x00)
@@ -7353,7 +7353,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                                 Sleep (0x64)
                                 \VHYB (0x00, 0x00)
                                 Store (One, DGOS)
-                                Store (0x02, \_SB.PCI0.PEG.VID.OMPR)
+                                Store (0x02, \_SB.PCI0.PEG.IGPU.OMPR)
                                 HPDE (0x01)
                             }
                         }
@@ -7658,11 +7658,11 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
 
                             If (And (0x02, Arg1))
                             {
-                                Notify (VID, 0x81)
+                                Notify (IGPU, 0x81)
                             }
                             Else
                             {
-                                Notify (VID, 0x80)
+                                Notify (IGPU, 0x80)
                             }
                         }
                     }
@@ -11497,11 +11497,11 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                 {
                     If (\VIGD)
                     {
-                        Notify (\_SB.PCI0.VID.LCD0, 0x86)
+                        Notify (\_SB.PCI0.IGPU.LCD0, 0x86)
                     }
                     Else
                     {
-                        Notify (\_SB.PCI0.PEG.VID.LCD0, 0x86)
+                        Notify (\_SB.PCI0.PEG.IGPU.LCD0, 0x86)
                     }
                 }
                 Else
@@ -11538,11 +11538,11 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                 {
                     If (\VIGD)
                     {
-                        Notify (\_SB.PCI0.VID.LCD0, 0x87)
+                        Notify (\_SB.PCI0.IGPU.LCD0, 0x87)
                     }
                     Else
                     {
-                        Notify (\_SB.PCI0.PEG.VID.LCD0, 0x87)
+                        Notify (\_SB.PCI0.PEG.IGPU.LCD0, 0x87)
                     }
                 }
                 Else
@@ -11574,7 +11574,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
             {
                 Add (\BRLV, 0x02, Local0)
                 Store (\BRTN, Local3)
-                If (\_SB.PCI0.VID.DRDY)
+                If (\_SB.PCI0.IGPU.DRDY)
                 {
                     If (LEqual (0x00, Local0))
                     {
@@ -11592,10 +11592,10 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                     }
 
                     Or (Local1, ShiftLeft (Local2, 0x09), Local2)
-                    \_SB.PCI0.VID.AINT (0x03, Local2)
+                    \_SB.PCI0.IGPU.AINT (0x03, Local2)
                     Store (DerefOf (Index (DerefOf (Index (BRTB, Local3)), Local0)), 
                         Local2)
-                    \_SB.PCI0.VID.AINT (0x01, Local2)
+                    \_SB.PCI0.IGPU.AINT (0x01, Local2)
                 }
                 Else
                 {
@@ -14559,7 +14559,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                         Store (One, OPEN)
                         Store (One, SHPC)
                         Store (One, DGPC)
-                        If (\_SB.PCI0.PEG.VID._STA ())
+                        If (\_SB.PCI0.PEG.IGPU._STA ())
                         {
                             Store (0x03, CGCS)
                         }
@@ -14600,7 +14600,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                         {
                             If (LEqual (_T_0, 0x10))
                             {
-                                Return (\_SB.PCI0.PEG.VID.GOBT (Arg3))
+                                Return (\_SB.PCI0.PEG.IGPU.GOBT (Arg3))
                             }
                         }
                     }
@@ -14956,15 +14956,15 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
 
             If (\VIGD)
             {
-                \_SB.PCI0.VID.GLIS (\_SB.LID._LID ())
+                \_SB.PCI0.IGPU.GLIS (\_SB.LID._LID ())
                 Store (\_SB.GDCK.GGID (), Local0)
                 If (LOr (LEqual (Local0, 0x00), LEqual (Local0, 0x01)))
                 {
-                    \_SB.PCI0.VID.GDCS (0x01)
+                    \_SB.PCI0.IGPU.GDCS (0x01)
                 }
                 Else
                 {
-                    \_SB.PCI0.VID.GDCS (0x00)
+                    \_SB.PCI0.IGPU.GDCS (0x00)
                 }
 
                 If (\WVIS)
@@ -14976,15 +14976,15 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
             {
                 If (\WVIS)
                 {
-                    \_SB.PCI0.VID.GLIS (\_SB.LID._LID ())
+                    \_SB.PCI0.IGPU.GLIS (\_SB.LID._LID ())
                     Store (\_SB.GDCK.GGID (), Local0)
                     If (LOr (LEqual (Local0, 0x00), LEqual (Local0, 0x01)))
                     {
-                        \_SB.PCI0.VID.GDCS (0x01)
+                        \_SB.PCI0.IGPU.GDCS (0x01)
                     }
                     Else
                     {
-                        \_SB.PCI0.VID.GDCS (0x00)
+                        \_SB.PCI0.IGPU.GDCS (0x00)
                     }
 
                     \VBTD ()
@@ -15124,13 +15124,13 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
         \VSLD (\_SB.LID._LID ())
         If (\VIGD)
         {
-            \_SB.PCI0.VID.GLIS (\_SB.LID._LID ())
+            \_SB.PCI0.IGPU.GLIS (\_SB.LID._LID ())
         }
         Else
         {
             If (\WVIS)
             {
-                \_SB.PCI0.VID.GLIS (\_SB.LID._LID ())
+                \_SB.PCI0.IGPU.GLIS (\_SB.LID._LID ())
             }
         }
 
@@ -15333,9 +15333,9 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
 
         Method (_L06, 0, NotSerialized)
         {
-            If (\_SB.PCI0.VID.GSSE)
+            If (\_SB.PCI0.IGPU.GSSE)
             {
-                \_SB.PCI0.VID.GSCI ()
+                \_SB.PCI0.IGPU.GSCI ()
             }
             Else
             {
@@ -15345,7 +15345,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
 
         Method (_L16, 0, NotSerialized)
         {
-            If (\_SB.PCI0.PEG.VID.ISOP ())
+            If (\_SB.PCI0.PEG.IGPU.ISOP ())
             {
                 If (LNot (\_SB.PCI0.LPC.XHPD))
                 {
