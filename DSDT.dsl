@@ -5692,7 +5692,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
 
                         If (\_SB.PCI0.PEG.IGPU.ISOP ())
                         {
-                            Notify (\_SB.PCI0.PEG.VID, 0xDF)
+                            Notify (\_SB.PCI0.PEG.IGPU, 0xDF)
                         }
 
                         Sleep (0x01F4)
@@ -5754,7 +5754,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
 
                         If (\_SB.PCI0.PEG.IGPU.ISOP ())
                         {
-                            Notify (\_SB.PCI0.PEG.VID, 0xDF)
+                            Notify (\_SB.PCI0.PEG.IGPU, 0xDF)
                         }
 
                         Sleep (0x01F4)
@@ -8268,7 +8268,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                     }
                 }
 
-                Scope (\_SB.PCI0.PEG.VID)
+                Scope (\_SB.PCI0.PEG.IGPU)
                 {
                     Method (NBCI, 4, NotSerialized)
                     {
@@ -14612,7 +14612,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
         }
 
         Name (\VHCC, 0x00)
-        Scope (\_SB.PCI0.PEG.VID)
+        Scope (\_SB.PCI0.PEG.IGPU)
         {
             Method (ISOP, 0, NotSerialized)
             {
@@ -14625,7 +14625,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
             Name (OTM, "OTMACPI 2009-Nov-12 18:18:51")
         }
 
-        Scope (\_SB.PCI0.PEG.VID)
+        Scope (\_SB.PCI0.PEG.IGPU)
         {
             Method (GOBT, 1, NotSerialized)
             {
@@ -14671,7 +14671,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
             }
         }
 
-        Scope (\_SB.PCI0.PEG.VID)
+        Scope (\_SB.PCI0.PEG.IGPU)
         {
             Name (OMPR, 0x02)
             Name (HDAS, 0x00)
@@ -14809,7 +14809,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
             }
         }
 
-        Scope (\_SB.PCI0.PEG.VID)
+        Scope (\_SB.PCI0.PEG.IGPU)
         {
             Name (CPPC, 0x00)
             Method (NVPS, 4, NotSerialized)
@@ -15522,7 +15522,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
             {
                 If (LNot (\_SB.PCI0.LPC.XHPD))
                 {
-                    Notify (\_SB.PCI0.PEG.VID, 0x81)
+                    Notify (\_SB.PCI0.PEG.IGPU, 0x81)
                 }
             }
 
