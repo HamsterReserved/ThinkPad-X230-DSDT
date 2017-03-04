@@ -4215,8 +4215,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                             0x01,               // Alignment
                             0x02,               // Length
                             )
-                        IRQNoFlags ()
-                            {2}
+                        
                     })
                 }
 
@@ -4231,8 +4230,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                             0x01,               // Alignment
                             0x04,               // Length
                             )
-                        IRQNoFlags ()
-                            {0}
+                        
                     })
                 }
 
@@ -4253,13 +4251,16 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                         Return (0x00)
                     }
 
-                    Name (BUF0, ResourceTemplate ()
-                    {
+                    Name (BUF0, ResourceTemplate()
+{
+    IRQNoFlags() { 0, 8, 11, 15 }
+
                         Memory32Fixed (ReadOnly,
                             0xFED00000,         // Address Base
                             0x00000400,         // Address Length
                             _Y27)
                     })
+
                     Method (_CRS, 0, Serialized)
                     {
                         CreateDWordField (BUF0, \_SB.PCI0.LPC.HPET._Y27._BAS, HPT0)
@@ -4337,8 +4338,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                             0x01,               // Alignment
                             0x02,               // Length
                             )
-                        IRQNoFlags ()
-                            {8}
+                        
                     })
                 }
 
