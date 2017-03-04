@@ -3717,6 +3717,14 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                     Store (0x01, ASLE)
                     Return (0x00)
                 }
+                Method (_DSM, 4, NotSerialized)
+                {
+                    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                    Return (Package()
+                    {
+                        "hda-gfx", Buffer() { "onboard-1" },
+                    })
+                }
             }
 
             Device (LPC)
