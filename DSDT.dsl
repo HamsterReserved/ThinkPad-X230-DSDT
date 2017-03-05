@@ -11659,88 +11659,17 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                     0xFF
                 }
             })
+            
             Method (_Q14, 0, NotSerialized)
             {
-                If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x8000))
-                {
-                    \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x1010)
-                }
-
-                If (\NBCF)
-                {
-                    If (\VIGD)
-                    {
-                        Notify (\_SB.PCI0.IGPU.LCD0, 0x86)
-                    }
-                    Else
-                    {
-                        Notify (\_SB.PCI0.PEG.IGPU.LCD0, 0x86)
-                    }
-                }
-                Else
-                {
-                    Store (\BRLV, Local0)
-                    If (LNotEqual (Local0, 0x0F))
-                    {
-                        Increment (Local0)
-                        Store (Local0, \BRLV)
-                    }
-
-                    If (\VIGD)
-                    {
-                        \UCMS (0x16)
-                        \_SB.PCI0.LPC.EC.BRNS ()
-                    }
-                    Else
-                    {
-                        \VBRC (Local0)
-                    }
-
-                    \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x6050)
-                }
+                // Brightness Up
+                Notify(\_SB.PCI0.LPC.KBD, 0x0406)
             }
 
             Method (_Q15, 0, NotSerialized)
             {
-                If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x00010000))
-                {
-                    \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x1011)
-                }
-
-                If (\NBCF)
-                {
-                    If (\VIGD)
-                    {
-                        Notify (\_SB.PCI0.IGPU.LCD0, 0x87)
-                    }
-                    Else
-                    {
-                        Notify (\_SB.PCI0.PEG.IGPU.LCD0, 0x87)
-                    }
-                }
-                Else
-                {
-                    Store (\BRLV, Local0)
-                    If (Local0)
-                    {
-                        Decrement (Local0)
-                        Store (Local0, \BRLV)
-                    }
-
-                    If (\VIGD)
-                    {
-                        \UCMS (0x16)
-                        \_SB.PCI0.LPC.EC.BRNS ()
-                    }
-                    Else
-                    {
-                        \VBRC (Local0)
-                    }
-
-                    \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x6050)
-                }
-
-                Return (Zero)
+                // Brightness Down
+                Notify(\_SB.PCI0.LPC.KBD, 0x0405)
             }
 
             Method (BRNS, 0, NotSerialized)
