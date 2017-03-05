@@ -5498,28 +5498,38 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                     Mutex(MCPU, 0)
                     Method (_Q10, 0, NotSerialized)
                     {
-                        If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x01))
+                        \rmdt.p1("EC _Q10 enter")
+If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x01))
                         {
                             \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x1001)
                         }
+\rmdt.p1("EC _Q10 exit")
+
                     }
 
                     Method (_Q11, 0, NotSerialized)
                     {
-                        Noop
+                        \rmdt.p1("EC _Q11 enter")
+Noop
+\rmdt.p1("EC _Q11 exit")
+
                     }
 
                     Method (_Q12, 0, NotSerialized)
                     {
-                        If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x02))
+                        \rmdt.p1("EC _Q12 enter")
+If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x02))
                         {
                             \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x1002)
                         }
+\rmdt.p1("EC _Q12 exit")
+
                     }
 
                     Method (_Q13, 0, NotSerialized)
                     {
-                        If (\_SB.PCI0.LPC.EC.HKEY.DHKC)
+                        \rmdt.p1("EC _Q13 enter")
+If (\_SB.PCI0.LPC.EC.HKEY.DHKC)
                         {
                             \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x1004)
                         }
@@ -5527,27 +5537,36 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                         {
                             Notify (\_SB.SLPB, 0x80)
                         }
+\rmdt.p1("EC _Q13 exit")
+
                     }
 
                     Method (_Q64, 0, NotSerialized)
                     {
-                        If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x10))
+                        \rmdt.p1("EC _Q64 enter")
+If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x10))
                         {
                             \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x1005)
                         }
+\rmdt.p1("EC _Q64 exit")
+
                     }
 
                     Method (_Q65, 0, NotSerialized)
                     {
-                        If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x20))
+                        \rmdt.p1("EC _Q65 enter")
+If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x20))
                         {
                             \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x1006)
                         }
+\rmdt.p1("EC _Q65 exit")
+
                     }
 
                     Method (_Q16, 0, NotSerialized)
                     {
-                        If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x40))
+                        \rmdt.p1("EC _Q16 enter")
+If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x40))
                         {
                             \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x1007)
                         }
@@ -5568,11 +5587,14 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                                 \_SB.PCI0.PEG.IGPU.VSWT ()
                             }
                         }
+\rmdt.p1("EC _Q16 exit")
+
                     }
 
                     Method (_Q17, 0, NotSerialized)
                     {
-                        If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x80))
+                        \rmdt.p1("EC _Q17 enter")
+If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x80))
                         {
                             \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x1008)
                         }
@@ -5583,100 +5605,136 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                                 VEXP ()
                             }
                         }
+\rmdt.p1("EC _Q17 exit")
+
                     }
 
                     Method (_Q18, 0, NotSerialized)
                     {
-                        If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x0100))
+                        \rmdt.p1("EC _Q18 enter")
+If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x0100))
                         {
                             \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x1009)
                         }
 
                         Noop
+\rmdt.p1("EC _Q18 exit")
+
                     }
 
                     Method (_Q66, 0, NotSerialized)
                     {
-                        If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x0200))
+                        \rmdt.p1("EC _Q66 enter")
+If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x0200))
                         {
                             \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x100A)
                         }
+\rmdt.p1("EC _Q66 exit")
+
                     }
 
                     Method (_Q1A, 0, NotSerialized)
                     {
-                        If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x0400))
+                        \rmdt.p1("EC _Q1A enter")
+If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x0400))
                         {
                             \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x100B)
                         }
+\rmdt.p1("EC _Q1A exit")
+
                     }
 
                     Method (_Q1B, 0, NotSerialized)
                     {
-                        \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x100C)
+                        \rmdt.p1("EC _Q1B enter")
+\_SB.PCI0.LPC.EC.HKEY.MHKQ (0x100C)
+\rmdt.p1("EC _Q1B exit")
+
                     }
 
                     Method (_Q62, 0, NotSerialized)
                     {
-                        If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x1000))
+                        \rmdt.p1("EC _Q62 enter")
+If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x1000))
                         {
                             \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x100D)
                         }
+\rmdt.p1("EC _Q62 exit")
+
                     }
 
                     Method (_Q60, 0, NotSerialized)
                     {
-                        If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x2000))
+                        \rmdt.p1("EC _Q60 enter")
+If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x2000))
                         {
                             \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x100E)
                         }
+\rmdt.p1("EC _Q60 exit")
+
                     }
 
                     Method (_Q61, 0, NotSerialized)
                     {
-                        If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x4000))
+                        \rmdt.p1("EC _Q61 enter")
+If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x4000))
                         {
                             \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x100F)
                         }
+\rmdt.p1("EC _Q61 exit")
+
                     }
 
                     Method (_Q1F, 0, NotSerialized)
                     {
-                        If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x00020000))
+                        \rmdt.p1("EC _Q1F enter")
+If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x00020000))
                         {
                             \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x1012)
                         }
 
                         \UCMS (0x0E)
+\rmdt.p1("EC _Q1F exit")
+
                     }
 
                     Method (_Q67, 0, NotSerialized)
                     {
-                        If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x00040000))
+                        \rmdt.p1("EC _Q67 enter")
+If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x00040000))
                         {
                             \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x1013)
                         }
+\rmdt.p1("EC _Q67 exit")
+
                     }
 
                     Method (_Q1C, 0, NotSerialized)
                     {
-                        If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x01000000))
+                        \rmdt.p1("EC _Q1C enter")
+If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x01000000))
                         {
                             \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x1019)
                         }
+\rmdt.p1("EC _Q1C exit")
+
                     }
 
                     Method (_Q1D, 0, NotSerialized)
                     {
-                        If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x02000000))
+                        \rmdt.p1("EC _Q1D enter")
+If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x02000000))
                         {
                             \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x101A)
                         }
+\rmdt.p1("EC _Q1D exit")
+
                     }
 
                     Method (_Q26, 0, NotSerialized)
                     {
-                        If (VIGD)
+                        \rmdt.p1("EC _Q26 enter")
+If (VIGD)
                         {
                             If (\WVIS)
                             {
@@ -5729,16 +5787,22 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
 
                         \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x6040)
                         ATMC ()
+\rmdt.p1("EC _Q26 exit")
+
                     }
 
                     Method (_Q2E, 0, NotSerialized)
                     {
-                        \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x6040)
+                        \rmdt.p1("EC _Q2E enter")
+\_SB.PCI0.LPC.EC.HKEY.MHKQ (0x6040)
+\rmdt.p1("EC _Q2E exit")
+
                     }
 
                     Method (_Q27, 0, NotSerialized)
                     {
-                        If (VIGD)
+                        \rmdt.p1("EC _Q27 enter")
+If (VIGD)
                         {
                             If (\WVIS)
                             {
@@ -5791,16 +5855,22 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
 
                         \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x6040)
                         ATMC ()
+\rmdt.p1("EC _Q27 exit")
+
                     }
 
                     Method (_Q2F, 0, NotSerialized)
                     {
-                        \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x6040)
+                        \rmdt.p1("EC _Q2F enter")
+\_SB.PCI0.LPC.EC.HKEY.MHKQ (0x6040)
+\rmdt.p1("EC _Q2F exit")
+
                     }
 
                     Method (_Q2A, 0, NotSerialized)
                     {
-                        \VCMS (0x01, \_SB.LID._LID ())
+                        \rmdt.p1("EC _Q2A enter")
+\VCMS (0x01, \_SB.LID._LID ())
                         If (LEqual (\ILNF, 0x00))
                         {
                             \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x5002)
@@ -5819,11 +5889,14 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                                 Notify (\_SB.LID, 0x80)
                             }
                         }
+\rmdt.p1("EC _Q2A exit")
+
                     }
 
                     Method (_Q2B, 0, NotSerialized)
                     {
-                        \UCMS (0x0D)
+                        \rmdt.p1("EC _Q2B enter")
+\UCMS (0x0D)
                         \VCMS (0x01, \_SB.LID._LID ())
                         If (LEqual (\ILNF, 0x00))
                         {
@@ -5842,15 +5915,21 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                                 Notify (\_SB.LID, 0x80)
                             }
                         }
+\rmdt.p1("EC _Q2B exit")
+
                     }
 
                     Method (_Q3D, 0, NotSerialized)
-                    {
+                    {\rmdt.p1("EC _Q3D enter")
+
+\rmdt.p1("EC _Q3D exit")
+
                     }
 
                     Method (_Q48, 0, NotSerialized)
                     {
-                        If (And (\PPMF, 0x01))
+                        \rmdt.p1("EC _Q48 enter")
+If (And (\PPMF, 0x01))
                         {
                             If (\OSPX)
                             {
@@ -5863,11 +5942,14 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
 
                             Store (0x01, \_SB.PCI0.LPC.EC.CALM)
                         }
+\rmdt.p1("EC _Q48 exit")
+
                     }
 
                     Method (_Q49, 0, NotSerialized)
                     {
-                        If (And (\PPMF, 0x01))
+                        \rmdt.p1("EC _Q49 enter")
+If (And (\PPMF, 0x01))
                         {
                             If (\OSPX)
                             {
@@ -5878,31 +5960,46 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                                 \STEP (0x05)
                             }
                         }
+\rmdt.p1("EC _Q49 exit")
+
                     }
 
                     Method (_Q7F, 0, NotSerialized)
                     {
-                        Fatal (0x01, 0x80010000, 0x02C3)
+                        \rmdt.p1("EC _Q7F enter")
+Fatal (0x01, 0x80010000, 0x02C3)
+\rmdt.p1("EC _Q7F exit")
+
                     }
 
                     Method (_Q4E, 0, NotSerialized)
                     {
-                        \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x6011)
+                        \rmdt.p1("EC _Q4E enter")
+\_SB.PCI0.LPC.EC.HKEY.MHKQ (0x6011)
+\rmdt.p1("EC _Q4E exit")
+
                     }
 
                     Method (_Q4F, 0, NotSerialized)
                     {
-                        \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x6012)
+                        \rmdt.p1("EC _Q4F enter")
+\_SB.PCI0.LPC.EC.HKEY.MHKQ (0x6012)
+\rmdt.p1("EC _Q4F exit")
+
                     }
 
                     Method (_Q46, 0, NotSerialized)
                     {
-                        \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x6012)
+                        \rmdt.p1("EC _Q46 enter")
+\_SB.PCI0.LPC.EC.HKEY.MHKQ (0x6012)
+\rmdt.p1("EC _Q46 exit")
+
                     }
 
                     Method (_Q22, 0, NotSerialized)
                     {
-                        CLPM ()
+                        \rmdt.p1("EC _Q22 enter")
+CLPM ()
                         If (HB0A)
                         {
                             Notify (BAT0, 0x80)
@@ -5912,23 +6009,32 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                         {
                             Notify (BAT1, 0x80)
                         }
+\rmdt.p1("EC _Q22 exit")
+
                     }
 
                     Method (_Q4A, 0, NotSerialized)
                     {
-                        CLPM ()
+                        \rmdt.p1("EC _Q4A enter")
+CLPM ()
                         Notify (BAT0, 0x81)
+\rmdt.p1("EC _Q4A exit")
+
                     }
 
                     Method (_Q4B, 0, NotSerialized)
                     {
-                        CLPM ()
+                        \rmdt.p1("EC _Q4B enter")
+CLPM ()
                         Notify (BAT0, 0x80)
+\rmdt.p1("EC _Q4B exit")
+
                     }
 
                     Method (_Q4C, 0, NotSerialized)
                     {
-                        CLPM ()
+                        \rmdt.p1("EC _Q4C enter")
+CLPM ()
                         If (\WNTF)
                         {
                             If (HB1A)
@@ -5945,30 +6051,41 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                         {
                             Notify (\_SB.PCI0.LPC.EC.BAT1, 0x81)
                         }
+\rmdt.p1("EC _Q4C exit")
+
                     }
 
                     Method (_Q4D, 0, NotSerialized)
                     {
-                        CLPM ()
+                        \rmdt.p1("EC _Q4D enter")
+CLPM ()
                         If (And (^BAT1.B1ST, ^BAT1.XB1S))
                         {
                             Notify (BAT1, 0x80)
                         }
+\rmdt.p1("EC _Q4D exit")
+
                     }
 
                     Method (_Q24, 0, NotSerialized)
                     {
-                        CLPM ()
+                        \rmdt.p1("EC _Q24 enter")
+CLPM ()
                         Notify (BAT0, 0x80)
+\rmdt.p1("EC _Q24 exit")
+
                     }
 
                     Method (_Q25, 0, NotSerialized)
                     {
-                        If (And (^BAT1.B1ST, ^BAT1.XB1S))
+                        \rmdt.p1("EC _Q25 enter")
+If (And (^BAT1.B1ST, ^BAT1.XB1S))
                         {
                             CLPM ()
                             Notify (BAT1, 0x80)
                         }
+\rmdt.p1("EC _Q25 exit")
+
                     }
 
                     Method (BATW, 1, NotSerialized)
@@ -7212,7 +7329,8 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                     {
                         Method (_Q6A, 0, NotSerialized)
                         {
-                            If (HDMC)
+                            \rmdt.p1("EC _Q6A enter")
+If (HDMC)
                             {
                                 Noop
                             }
@@ -7223,6 +7341,8 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                                     \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x101B)
                                 }
                             }
+\rmdt.p1("EC _Q6A exit")
+
                         }
                     }
 
@@ -7286,7 +7406,10 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                     {
                         Method (_Q3F, 0, NotSerialized)
                         {
-                            \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x6000)
+                            \rmdt.p1("EC _Q3F enter")
+\_SB.PCI0.LPC.EC.HKEY.MHKQ (0x6000)
+\rmdt.p1("EC _Q3F exit")
+
                         }
                     }
 
@@ -9855,22 +9978,29 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
             Name (BHKE, 0x00)
             Method (_Q2C, 0, NotSerialized)
             {
-                If (LEqual (BSTS, 0x00))
+                \rmdt.p1("EC _Q2C enter")
+If (LEqual (BSTS, 0x00))
                 {
                     Store (BGID (0x00), BDEV)
                     NBRE (BDEV)
                 }
+\rmdt.p1("EC _Q2C exit")
+
             }
 
             Method (_Q2D, 0, NotSerialized)
             {
-                Store (BGID (0x00), BDEV)
+                \rmdt.p1("EC _Q2D enter")
+Store (BGID (0x00), BDEV)
                 NBIN (BDEV)
+\rmdt.p1("EC _Q2D exit")
+
             }
 
             Method (_Q38, 0, NotSerialized)
             {
-                Store (BGID (0x00), Local0)
+                \rmdt.p1("EC _Q38 enter")
+Store (BGID (0x00), Local0)
                 If (LEqual (Local0, 0x0F))
                 {
                     BDIS ()
@@ -9892,12 +10022,15 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                         NBIN (Local0)
                     }
                 }
+\rmdt.p1("EC _Q38 exit")
+
             }
 
             Name (ODEJ, 0x00)
             Method (_Q44, 0, NotSerialized)
             {
-                If (\_SB.PCI0.LPC.CSON)
+                \rmdt.p1("EC _Q44 enter")
+If (\_SB.PCI0.LPC.CSON)
                 {
                     Store (0x01, ODEJ)
                     Store (BGID (0x00), BDEV)
@@ -9905,6 +10038,8 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                     Store (0x00, ODEJ)
                     \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x3006)
                 }
+\rmdt.p1("EC _Q44 exit")
+
             }
 
             Method (NBRE, 1, NotSerialized)
@@ -10403,7 +10538,8 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
         {
             Method (_Q50, 0, NotSerialized)
             {
-                Store (\_SB.GDCK.GGID (), Local0)
+                \rmdt.p1("EC _Q50 enter")
+Store (\_SB.GDCK.GGID (), Local0)
                 If (LNotEqual (Local0, 0x07))
                 {
                     \_SB.PCI0.LPC.EC.LED (0x08, 0x80)
@@ -10417,11 +10553,14 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
 
                     Notify (\_SB.GDCK, 0x03)
                 }
+\rmdt.p1("EC _Q50 exit")
+
             }
 
             Method (_Q45, 0, NotSerialized)
             {
-                Store (0xFFFFFFFF, \_SB.GDCK.G_ID)
+                \rmdt.p1("EC _Q45 enter")
+Store (0xFFFFFFFF, \_SB.GDCK.G_ID)
                 Store (0xFFFFFFFF, \_SB.PCI0.LPC.EC.SLID)
                 Store (\_SB.GDCK.GGID (), Local0)
                 If (LEqual (Local0, 0x07))
@@ -10505,6 +10644,8 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                         \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x4011)
                     }
                 }
+\rmdt.p1("EC _Q45 exit")
+
             }
 
             Method (GUSB, 1, NotSerialized)
@@ -11093,7 +11234,10 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
         {
             Method (_Q43, 0, NotSerialized)
             {
-                \UCMS (0x18)
+                \rmdt.p1("EC _Q43 enter")
+\UCMS (0x18)
+\rmdt.p1("EC _Q43 exit")
+
             }
 
             Method (SAUM, 1, NotSerialized)
@@ -11661,7 +11805,8 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
             })
             Method (_Q14, 0, NotSerialized)
             {
-                If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x8000))
+                \rmdt.p1("EC _Q14 enter")
+If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x8000))
                 {
                     \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x1010)
                 }
@@ -11698,11 +11843,14 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
 
                     \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x6050)
                 }
+\rmdt.p1("EC _Q14 exit")
+
             }
 
             Method (_Q15, 0, NotSerialized)
             {
-                If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x00010000))
+                \rmdt.p1("EC _Q15 enter")
+If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x00010000))
                 {
                     \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x1011)
                 }
@@ -11741,6 +11889,8 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                 }
 
                 Return (Zero)
+\rmdt.p1("EC _Q15 exit")
+
             }
 
             Method (BRNS, 0, NotSerialized)
@@ -11806,12 +11956,15 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
         {
             Method (_Q19, 0, NotSerialized)
             {
-                If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x00800000))
+                \rmdt.p1("EC _Q19 enter")
+If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x00800000))
                 {
                     \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x1018)
                 }
 
                 \UCMS (0x03)
+\rmdt.p1("EC _Q19 exit")
+
             }
         }
 
@@ -11819,12 +11972,15 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
         {
             Method (_Q63, 0, NotSerialized)
             {
-                If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x00080000))
+                \rmdt.p1("EC _Q63 enter")
+If (\_SB.PCI0.LPC.EC.HKEY.MHKK (0x00080000))
                 {
                     \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x1014)
                 }
 
                 \UCMS (0x0B)
+\rmdt.p1("EC _Q63 exit")
+
             }
         }
 
@@ -11832,17 +11988,26 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
         {
             Method (_Q70, 0, NotSerialized)
             {
-                FNST ()
+                \rmdt.p1("EC _Q70 enter")
+FNST ()
+\rmdt.p1("EC _Q70 exit")
+
             }
 
             Method (_Q72, 0, NotSerialized)
             {
-                FNST ()
+                \rmdt.p1("EC _Q72 enter")
+FNST ()
+\rmdt.p1("EC _Q72 exit")
+
             }
 
             Method (_Q73, 0, NotSerialized)
             {
-                FNST ()
+                \rmdt.p1("EC _Q73 enter")
+FNST ()
+\rmdt.p1("EC _Q73 exit")
+
             }
 
             Method (FNST, 0, NotSerialized)
@@ -12113,11 +12278,14 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
         {
             Method (_Q41, 0, NotSerialized)
             {
-                \_SB.PCI0.LPC.EC.HKEY.MHKQ (0x7000)
+                \rmdt.p1("EC _Q41 enter")
+\_SB.PCI0.LPC.EC.HKEY.MHKQ (0x7000)
                 If (\WIN8)
                 {
                     Notify (\_SB.PCI0.LPC.EC.WGSH, 0x80)
                 }
+\rmdt.p1("EC _Q41 exit")
+
             }
         }
 
@@ -16024,7 +16192,8 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
     {
         Method (_Q40, 0, NotSerialized)
         {
-            Notify (\_TZ.THM0, 0x80)
+            \rmdt.p1("EC _Q40 enter")
+Notify (\_TZ.THM0, 0x80)
             If (\H8DR)
             {
                 Store (\_SB.PCI0.LPC.EC.TSL2, Local1)
@@ -16070,6 +16239,8 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                     }
                 }
             }
+\rmdt.p1("EC _Q40 exit")
+
         }
     }
 
@@ -16732,6 +16903,113 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
         Or(Arg1, ShiftLeft(Local0, 8), Local0)
         Or(Arg0, ShiftLeft(Local0, 8), Local0)
         Return(Local0)
+    }
+    Device (RMDT)
+    {
+        Name (_HID, "RMD0000")
+        Name (RING, Package(256) { })
+        Mutex (RTMX, 0)
+        Name (HEAD, 0)
+        Name (TAIL, 0)
+        // PUSH: Use to push a trace item into RING for ACPIDebug.kext
+        Method (PUSH, 1, NotSerialized)
+        {
+            Acquire(RTMX, 0xFFFF)
+            // push new item at HEAD
+            Add(HEAD, 1, Local0)
+            If (LGreaterEqual(Local0, SizeOf(RING))) { Store(0, Local0) }
+            if (LNotEqual(Local0, TAIL))
+            {
+                Store(Arg0, Index(RING, HEAD))
+                Store(Local0, HEAD)
+            }
+            Release(RTMX)
+            Notify(RMDT, 0x80)
+        }
+        // FTCH: Used by ACPIDebug.kext to fetch an item from RING
+        Method (FTCH, 0, NotSerialized)
+        {
+            Acquire(RTMX, 0xFFFF)
+            // pull item from TAIL and return it
+            Store(0, Local0)
+            if (LNotEqual(HEAD, TAIL))
+            {
+                Store(DerefOf(Index(RING, TAIL)), Local0)
+                Increment(TAIL)
+                If (LGreaterEqual(TAIL, SizeOf(RING))) { Store(0, TAIL) }
+            }
+            Release(RTMX)
+            Return(Local0)
+        }
+        // COUN: Used by ACPIDebug.kext to determine number of items in RING
+        Method (COUN, 0, NotSerialized)
+        {
+            Acquire(RTMX, 0xFFFF)
+            // return count of items in RING
+            Subtract(HEAD, TAIL, Local0)
+            if (LLess(Local0, 0)) { Add(Local0, SizeOf(RING), Local0) }
+            Release(RTMX)
+            Return(Local0)
+        }
+        // Helper functions for multiple params at one time
+        Method (P1, 1, NotSerialized) { PUSH(Arg0) }
+        Method (P2, 2, Serialized)
+        {
+            Name (TEMP, Package(2) { })
+            Store(Arg0, Index(TEMP, 0))
+            Store(Arg1, Index(TEMP, 1))
+            PUSH(TEMP)
+        }
+        Method (P3, 3, Serialized)
+        {
+            Name (TEMP, Package(3) { })
+            Store(Arg0, Index(TEMP, 0))
+            Store(Arg1, Index(TEMP, 1))
+            Store(Arg2, Index(TEMP, 2))
+            PUSH(TEMP)
+        }
+        Method (P4, 4, Serialized)
+        {
+            Name (TEMP, Package(4) { })
+            Store(Arg0, Index(TEMP, 0))
+            Store(Arg1, Index(TEMP, 1))
+            Store(Arg2, Index(TEMP, 2))
+            Store(Arg3, Index(TEMP, 3))
+            PUSH(TEMP)
+        }
+        Method (P5, 5, Serialized)
+        {
+            Name (TEMP, Package(5) { })
+            Store(Arg0, Index(TEMP, 0))
+            Store(Arg1, Index(TEMP, 1))
+            Store(Arg2, Index(TEMP, 2))
+            Store(Arg3, Index(TEMP, 3))
+            Store(Arg4, Index(TEMP, 4))
+            PUSH(TEMP)
+        }
+        Method (P6, 6, Serialized)
+        {
+            Name (TEMP, Package(6) { })
+            Store(Arg0, Index(TEMP, 0))
+            Store(Arg1, Index(TEMP, 1))
+            Store(Arg2, Index(TEMP, 2))
+            Store(Arg3, Index(TEMP, 3))
+            Store(Arg4, Index(TEMP, 4))
+            Store(Arg5, Index(TEMP, 5))
+            PUSH(TEMP)
+        }
+        Method (P7, 7, Serialized)
+        {
+            Name (TEMP, Package(7) { })
+            Store(Arg0, Index(TEMP, 0))
+            Store(Arg1, Index(TEMP, 1))
+            Store(Arg2, Index(TEMP, 2))
+            Store(Arg3, Index(TEMP, 3))
+            Store(Arg4, Index(TEMP, 4))
+            Store(Arg5, Index(TEMP, 5))
+            Store(Arg6, Index(TEMP, 6))
+            PUSH(TEMP)
+        }
     }
 }
 
