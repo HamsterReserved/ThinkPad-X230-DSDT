@@ -3717,14 +3717,7 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                     Store (0x01, ASLE)
                     Return (0x00)
                 }
-                Method (_DSM, 4, NotSerialized)
-                {
-                    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
-                    Return (Package()
-                    {
-                        "hda-gfx", Buffer() { "onboard-1" },
-                    })
-                }
+                
                 OperationRegion (RMPC, PCI_Config, 0x10, 4)
                 Field (RMPC, AnyAcc, NoLock, Preserve)
                 {
@@ -3888,6 +3881,15 @@ DefinitionBlock ("iASLyuZTB0.aml", "DSDT", 1, "LENOVO", "TP-G2   ", 0x00002670)
                         1249, 1296, 1343, 1391,
                         1440, 1490, 1541, 1592,
                         1645, 1698, 1753, 1808,
+                    })
+                }
+                Method (_DSM, 4, NotSerialized)
+                {
+                    If (LEqual (Arg2, Zero)) { Return (Buffer() { 0x03 } ) }
+                    Return (Package()
+                    {
+                        "AAPL,ig-platform-id", Buffer() { 0x03, 0x00, 0x66, 0x01 },
+                        "hda-gfx", Buffer() { "onboard-1" },
                     })
                 }
             }
